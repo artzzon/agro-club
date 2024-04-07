@@ -6,16 +6,24 @@ const ProductCard = () => {
       <img src="https://i.ibb.co/m4xLJYR/Wheat-2x.png" alt="" width="116px" />
       <div className={styles.productCard__content}>
         <div className={styles.productCard__description}>
-          <span>Canola</span>
-          <h5>CS2300</h5>
+          <div className={styles.productCard__description_title}>
+            <span>Canola</span>
+          </div>
+          <div className={styles.productCard__description_head}>
+            <h5>CS2300</h5>
+          </div>
           <p>Roundup Ready Canola Hybrid</p>
           <div className={styles.productCard__description_badges}>
-            <span>Limited</span>
-            <span>New</span>
+            <span className={styles.productCard__description_badges_limited}>
+              Limited
+            </span>
+            <span className={styles.productCard__description_badges_new}>
+              New
+            </span>
           </div>
         </div>
         <div className={styles.productCard__price}>
-          <h6>$34.00</h6>
+          <p>$34.00</p>
           <span>Discount $2 per bag</span>
         </div>
       </div>

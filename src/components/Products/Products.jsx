@@ -7,6 +7,11 @@ const Products = () => {
     <div className={styles.products}>
       <ProductCard />
       <ProductCard />
+      <ProductCard />
+      <ProductCard />
+      <ProductCard />
+      <ProductCard />
+      <ProductCard />
     </div>
   );
 };
