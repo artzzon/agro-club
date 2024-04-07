@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+
+.productCard {
+  display: flex;
+  width: 448px;
+  height: 145px;
+  background-color: white;
+  border-radius: 16px;
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__description {
+    position: relative;
+    span {
+      color: $grey;
+    }
+    &_badges {
+      position: absolute;
+      top: 10px;
+      right: 5px;
+    }
+  }
+}

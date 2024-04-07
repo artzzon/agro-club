@@ -21,10 +21,14 @@ const Filter = () => {
         </div>
         <div className={styles.filter__status}>
           <h4>STATUS</h4>
-          <input type="checkbox" name="Limited" />
-          <span>Limited</span>
-          <input type="checkbox" name="New" />
-          <span>New</span>
+          <div className={styles.filter__status_checkbox}>
+            <input type="checkbox" name="Limited" />
+            <span>Limited</span>
+          </div>
+          <div className={styles.filter__status_checkbox}>
+            <input type="checkbox" name="New" />
+            <span>New</span>
+          </div>
         </div>
       </div>
     </div>
