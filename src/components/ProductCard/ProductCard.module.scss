@@ -2,13 +2,21 @@
 
 .productCard {
   display: flex;
-  width: 448px;
-  height: 145px;
+
+  width: calc(100% / 3 - 16px);
   background-color: white;
   border-radius: 16px;
   line-height: 20px;
   cursor: pointer;
-
+  @media (max-width: 1180px) {
+    width: calc(100% / 2 - 12px);
+  }
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+  @media (max-width: 432px) {
+    min-width: 100%;
+  }
   &__content {
     flex-grow: 1;
   }

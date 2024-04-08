@@ -9,7 +9,9 @@ body {
 }
 
 #root {
-  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1470px;
   margin: 0 auto;
   font-family: "Montserrat";
 }

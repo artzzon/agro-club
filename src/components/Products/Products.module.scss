@@ -1,6 +1,7 @@
 .products {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   column-gap: 24px;
   row-gap: 24px;
   margin-left: 40px;
