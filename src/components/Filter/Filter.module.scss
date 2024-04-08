@@ -13,7 +13,7 @@
 
   &__category_status {
     display: flex;
-
+    column-gap: 10px;
     h4 {
       width: 100%;
       font-size: 14px;
@@ -38,18 +38,21 @@
   }
 
   &__status {
-    h4 {
-      margin-bottom: 20px;
-    }
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
 
-    input {
-      margin-right: 10px;
-    }
-
-    span {
-      &:first-of-type {
-        margin-right: 14px;
+    &_container {
+      display: flex;
+      column-gap: 10px;
+      @media (max-width: 432px) {
+        flex-direction: column;
       }
+    }
+
+    &_checkbox {
+      display: flex;
+      gap: 10px;
     }
   }
 }
