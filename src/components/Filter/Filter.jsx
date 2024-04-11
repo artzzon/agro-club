@@ -1,7 +1,20 @@
+import React from "react";
+import QueryService from "../../API/QueryService";
+import { useFetching } from "../../hooks/useFetching";
 import Button from "../UI/button/Button";
 import styles from "./Filter.module.scss";
 
 const Filter = () => {
+  const [categories, setCategories] = React.useState([]);
+  const [tryFetch, isLoading, error] = useFetching(async () => {
+    const response = await QueryService.getCategories();
+    setCategories(response.data);
+  });
+
+  React.useEffect(() => {
+    tryFetch();
+  }, []);
+
   return (
     <div className={styles.filter}>
       <div className={styles.filter__header}>
@@ -12,12 +25,9 @@ const Filter = () => {
         <div className={styles.filter__category}>
           <h4>CATEGORY</h4>
           <Button>All</Button>
-          <Button>Canola</Button>
-          <Button>Corn</Button>
-          <Button>Oats</Button>
-          <Button>Wheat</Button>
-          <Button>Soybeans</Button>
-          <Button>Barley</Button>
+          {categories.map((category) => (
+            <Button key={category.id}>{category.name}</Button>
+          ))}
         </div>
         <div className={styles.filter__status}>
           <h4>STATUS</h4>
