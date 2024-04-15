@@ -1,7 +1,7 @@
 import React from "react";
 import QueryService from "../../API/QueryService";
 import { useFetching } from "../../hooks/useFetching";
-import { ThreeDots } from "react-loader-spinner";
+import Loader from "../UI/loader/Loader";
 import Button from "../UI/button/Button";
 import styles from "./Filter.module.scss";
 
@@ -26,16 +26,7 @@ const Filter = () => {
         <div className={styles.filter__category}>
           <h4>CATEGORY</h4>
           {isLoading ? (
-            <ThreeDots
-              visible={true}
-              height="30"
-              width="50"
-              color="#a8b8ca"
-              radius="9"
-              ariaLabel="#a8b8ca"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
+            <Loader />
           ) : (
             <>
               <Button>All</Button>
