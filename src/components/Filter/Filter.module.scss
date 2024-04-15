@@ -13,6 +13,7 @@
 
   &__category_status {
     display: flex;
+    justify-content: space-between;
     column-gap: 10px;
     h4 {
       width: 100%;
