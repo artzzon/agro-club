@@ -1,3 +1,5 @@
+@import "../../../styles/variables";
+
 .button {
   padding: 5px 15px;
   color: #037bff;
@@ -13,4 +15,9 @@
     background-color: #037bff;
     color: white;
   }
+}
+
+.active {
+  background-color: $blue;
+  color: white;
 }

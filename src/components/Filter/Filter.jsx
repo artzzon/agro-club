@@ -29,7 +29,7 @@ const Filter = () => {
             <Loader />
           ) : (
             <>
-              <Button>All</Button>
+              <Button active="active">All</Button>
               {categories.map((category) => (
                 <Button key={category.id}>{category.name}</Button>
               ))}
