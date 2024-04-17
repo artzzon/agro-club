@@ -1,13 +1,15 @@
 import React from "react";
 import QueryService from "../../API/QueryService";
 import { useFetching } from "../../hooks/useFetching";
+import { CategoryContext } from "../../App";
 import Loader from "../UI/loader/Loader";
 import Button from "../UI/button/Button";
 import styles from "./Filter.module.scss";
 
 const Filter = () => {
   const [categories, setCategories] = React.useState([]);
-  const [activeCategory, setActiveCategory] = React.useState("1");
+  const { activeCategory, setActiveCategory } =
+    React.useContext(CategoryContext);
   const [tryFetch, isLoading, error] = useFetching(async () => {
     const response = await QueryService.getCategories();
     setCategories(response.data);
@@ -34,17 +36,13 @@ const Filter = () => {
             <Loader />
           ) : (
             <>
-              <Button
-                active={activeCategory === "1" ? "active" : undefined}
-                onClick={() => clickHandler("1")}
-              >
-                All
-              </Button>
               {categories.map((category) => (
                 <Button
                   key={category.id}
-                  onClick={() => clickHandler(category.id)}
-                  active={activeCategory === category.id ? "active" : undefined}
+                  onClick={() => clickHandler(category.type)}
+                  active={
+                    activeCategory === category.type ? "active" : undefined
+                  }
                 >
                   {category.name}
                 </Button>
