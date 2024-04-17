@@ -15,7 +15,7 @@ const Products = () => {
   React.useEffect(() => {
     tryFetch();
   }, []);
-  console.log(products);
+
   return (
     <div className={styles.products}>
       {isLoading ? (

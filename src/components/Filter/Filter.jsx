@@ -7,10 +7,15 @@ import styles from "./Filter.module.scss";
 
 const Filter = () => {
   const [categories, setCategories] = React.useState([]);
+  const [activeCategory, setActiveCategory] = React.useState("1");
   const [tryFetch, isLoading, error] = useFetching(async () => {
     const response = await QueryService.getCategories();
     setCategories(response.data);
   });
+
+  const clickHandler = (e) => {
+    setActiveCategory(e);
+  };
 
   React.useEffect(() => {
     tryFetch();
@@ -29,9 +34,20 @@ const Filter = () => {
             <Loader />
           ) : (
             <>
-              <Button active="active">All</Button>
+              <Button
+                active={activeCategory === "1" ? "active" : undefined}
+                onClick={() => clickHandler("1")}
+              >
+                All
+              </Button>
               {categories.map((category) => (
-                <Button key={category.id}>{category.name}</Button>
+                <Button
+                  key={category.id}
+                  onClick={() => clickHandler(category.id)}
+                  active={activeCategory === category.id ? "active" : undefined}
+                >
+                  {category.name}
+                </Button>
               ))}
             </>
           )}

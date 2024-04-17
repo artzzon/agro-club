@@ -1,3 +1,5 @@
+import React from "react";
+
 import styles from "./Button.module.scss";
 
 const Button = ({ children, ...props }) => {
@@ -6,6 +8,7 @@ const Button = ({ children, ...props }) => {
       className={`${styles.button} ${
         props.active !== undefined ? styles[props.active] : ""
       }`.trim()}
+      onClick={props.onClick}
     >
       {children}
     </button>
