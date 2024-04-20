@@ -6,22 +6,27 @@ import Products from "./components/Products/Products";
 
 import "./styles/App.scss";
 
-export const CategoryContext = React.createContext({});
+export const FilterContext = React.createContext({});
 function App() {
   const [activeCategory, setActiveCategory] = React.useState("all");
+  const [activeStatus, setActiveStatus] = React.useState({
+    isLimited: false,
+    isNew: false,
+  });
+
   return (
-    <>
-      <CategoryContext.Provider
-        value={{
-          activeCategory,
-          setActiveCategory,
-        }}
-      >
-        <Header />
-        <Filter />
-        <Products />
-      </CategoryContext.Provider>
-    </>
+    <FilterContext.Provider
+      value={{
+        activeCategory,
+        setActiveCategory,
+        activeStatus,
+        setActiveStatus,
+      }}
+    >
+      <Header />
+      <Filter />
+      <Products />
+    </FilterContext.Provider>
   );
 }
 
