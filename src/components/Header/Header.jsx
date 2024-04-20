@@ -4,7 +4,10 @@ import styles from "./Header.module.scss";
 const Header = () => {
   return (
     <div className={styles.header}>
-      <h1 className={styles.header__logo} onClick={window.location.reload()}>
+      <h1
+        className={styles.header__logo}
+        onClick={() => window.location.reload()}
+      >
         Products
       </h1>
       <Input />
