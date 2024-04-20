@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class QueryService {
-  static async getAllProducts(category, status) {
+  static async getAllProducts(category, status, searchValue) {
     const categoryParameter = () => {
       if (category !== "all") {
         return `categoryType=${category}`;
@@ -20,8 +20,15 @@ export default class QueryService {
       return "";
     };
 
+    const searchParameter = () => {
+      if (searchValue) {
+        return `description=*${searchValue}`;
+      }
+      return "";
+    };
+
     return await axios.get(
-      `https://32525a728e20df36.mokky.dev/products?${categoryParameter()}&${statusParameter()}`
+      `https://32525a728e20df36.mokky.dev/products?${categoryParameter()}${statusParameter()}${searchParameter()}`
     );
   }
 
